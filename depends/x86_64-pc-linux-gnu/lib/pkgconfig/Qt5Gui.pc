@@ -1,0 +1,14 @@
+prefix=/root/r1/tune-l/depends/x86_64-pc-linux-gnu
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Qt5 Gui
+Description: Qt Gui module
+Version: 5.5.0
+Libs: -L${libdir} -lQt5Gui 
+Libs.private: -L/root/r1/tune-l/depends/x86_64-pc-linux-gnu/lib -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread -lqtharfbuzzng  
+Cflags: -I${includedir}/QtGui 
+Requires: Qt5Core
+

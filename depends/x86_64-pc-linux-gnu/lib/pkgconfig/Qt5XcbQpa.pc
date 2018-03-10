@@ -1,0 +1,14 @@
+prefix=/root/r1/tune-l/depends/x86_64-pc-linux-gnu
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Qt5 XcbQpa
+Description: Qt XcbQpa module
+Version: 5.5.0
+Libs: -L${libdir} -lQt5XcbQpa 
+Libs.private: -lX11 -lX11-xcb -L//root/r1/tune-l/depends/x86_64-pc-linux-gnu/lib -lxcb -L/root/r1/tune-l/depends/work/build/x86_64-pc-linux-gnu/qt/5.5.0-d547dcbd9bd/qtbase/src/plugins/platforms/xcb/xcb-static -lxcb-static -L/root/r1/tune-l/depends/x86_64-pc-linux-gnu/lib -lQt5PlatformSupport -lfontconfig -lfreetype -lQt5DBus -lQt5Gui -lqtharfbuzzng -lQt5Core -lqtpcre -lm -ldl -lrt -lpthread   
+Cflags: -I${includedir}/QtXcbQpa 
+Requires: Qt5Core Qt5Gui
+

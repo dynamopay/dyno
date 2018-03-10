@@ -1,0 +1,6 @@
+usr/local/bin/dyno-qt usr/bin
+share/pixmaps/dyno32.xpm usr/share/pixmaps
+share/pixmaps/dyno16.xpm usr/share/pixmaps
+share/pixmaps/dyno128.png usr/share/pixmaps
+debian/dyno-qt.desktop usr/share/applications
+debian/dyno-qt.protocol usr/share/kde4/services/

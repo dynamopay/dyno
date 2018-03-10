@@ -1,0 +1,11 @@
+[Protocol]
+exec=dyno-qt '%u'
+protocol=dyno
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

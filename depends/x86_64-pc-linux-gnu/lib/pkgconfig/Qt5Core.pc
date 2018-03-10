@@ -1,0 +1,15 @@
+prefix=/root/r1/tune-l/depends/x86_64-pc-linux-gnu
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+host_bins=${prefix}/native/bin
+qt_config=minimal-config small-config medium-config large-config full-config fontconfig evdev xlib xcb-plugin xcb-qt xcb-xlib xkbcommon-qt accessibility-atspi-bridge accessibility static qpa reduce_exports clock-gettime clock-monotonic posix_fallocate mremap getaddrinfo ipv6ifname getifaddrs inotify eventfd jpeg png no-gif system-freetype harfbuzz zlib dbus openssl-linked xcb rpath concurrent release
+
+Name: Qt5 Core
+Description: Qt Core module
+Version: 5.5.0
+Libs: -L${libdir} -lQt5Core 
+Libs.private: -lpthread -L/root/r1/tune-l/depends/x86_64-pc-linux-gnu/lib -lqtpcre -lm -ldl -lrt  
+Cflags: -I${includedir}/QtCore 
+
