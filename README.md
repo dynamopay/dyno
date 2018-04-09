@@ -1,4 +1,4 @@
-DynamoPay Core 0.13.1
+DynamoPay Core 0.13.2
 ===============================
 
 http://www.dynamopay.io/
@@ -6,11 +6,11 @@ http://www.dynamopay.io/
 What is DynamoPay?
 ----------------
 
-DYNO is an advanced, decentralized and secure digital currency.
+DynamoPay is an advanced, decentralized and secure digital currency.
 Based on Dash, it's an enhanced and further developed version, featuring the masternode technology,
 near-instant and secure payments as well as anonymous transactions.
 With a fast block time of only 2 minutes, transactions will usually confirm and be successfully
-processed very quickly. DYNO's blockchain uses the advanced NeoScrypt Proof-of-Work algorithm to
+processed very quickly. DynamoPay's blockchain uses the advanced NeoScrypt Proof-of-Work algorithm to
 secure the network. NeoScrypt is ASIC resistant and ensures a fair and stable return on investment
 for the miners.
 
@@ -23,8 +23,8 @@ Additional information, wallets, specifications & roadmap: http://www.dynamopay.
 - Block reward: 40 DYO
 - Masternode Collateral: 1000 DYO
 - POW/Masternode Split: 30/70%
-- Premine: Total 920000 DYO
-- Total supply: 27 000 000 DYO
+- Premine: 920 000 DYO
+- Total supply: 108 000 000 DYO
 
 
 License

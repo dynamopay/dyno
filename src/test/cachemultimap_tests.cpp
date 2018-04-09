@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Dyno Core developers
+// Copyright (c) 2014-2018 The DynamoPay Core developers
 
 #include "cachemultimap.h"
 

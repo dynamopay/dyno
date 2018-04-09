@@ -1,5 +1,5 @@
 
-// // Copyright (c) 2014-2017 The Dyno Core developers
+// // Copyright (c) 2014-2018 The DynamoPay Core developers
 // // Distributed under the MIT/X11 software license, see the accompanying
 // // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
