@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  dynod The Dyno Core server.
+#  dynod The dyno core server.
 #
 #
 # chkconfig: 345 80 20
@@ -19,14 +19,14 @@ fi
 RETVAL=0
 
 prog=dynod
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/dynod
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/dynod}
+# you can override the lockfile via DYNOD_LOCKFILE in /etc/sysconfig/dynod
+lockfile=${DYNOD_LOCKFILE-/var/lock/subsys/dynod}
 
-# dynod defaults to /usr/bin/dynod, override with BITCOIND_BIN
-dynod=${BITCOIND_BIN-/usr/bin/dynod}
+# dynod defaults to /usr/bin/dynod, override with DYNOD_BIN
+dynod=${DYNOD_BIN-/usr/bin/dynod}
 
-# dynod opts default to -disablewallet, override with BITCOIND_OPTS
-dynod_opts=${BITCOIND_OPTS--disablewallet}
+# dynod opts default to -disablewallet, override with DYNOD_OPTS
+dynod_opts=${DYNOD_OPTS--disablewallet}
 
 start() {
     echo -n $"Starting $prog: "

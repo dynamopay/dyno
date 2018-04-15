@@ -1,42 +1,42 @@
-#!/sbin/runscript
+#!/sbin/openrc-run
 
 # backward compatibility for existing gentoo layout 
 #
-if [ -d "/var/lib/dynocore/.dynocore" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/dynocore/.dynocore"
+if [ -d "/var/lib/dyno/.dyno" ]; then
+	DYNOD_DEFAULT_DATADIR="/var/lib/dyno/.dyno"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/dynod"
+	DYNOD_DEFAULT_DATADIR="/var/lib/dynod"
 fi
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/dynocore/dyno.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/dynod}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/dynod.pid}
-BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-${BITCOIN_USER:-dynocore}}
-BITCOIND_GROUP=${BITCOIND_GROUP:-dynocore}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/dynod}
-BITCOIND_NICE=${BITCOIND_NICE:-${NICELEVEL:-0}}
-BITCOIND_OPTS="${BITCOIND_OPTS:-${BITCOIN_OPTS}}"
+DYNOD_CONFIGFILE=${DYNOD_CONFIGFILE:-/etc/dyno/dyno.conf}
+DYNOD_PIDDIR=${DYNOD_PIDDIR:-/var/run/dynod}
+DYNOD_PIDFILE=${DYNOD_PIDFILE:-${DYNOD_PIDDIR}/dynod.pid}
+DYNOD_DATADIR=${DYNOD_DATADIR:-${DYNOD_DEFAULT_DATADIR}}
+DYNOD_USER=${DYNOD_USER:-${DYNO_USER:-dyno}}
+DYNOD_GROUP=${DYNOD_GROUP:-dyno}
+DYNOD_BIN=${DYNOD_BIN:-/usr/bin/dynod}
+DYNOD_NICE=${DYNOD_NICE:-${NICELEVEL:-0}}
+DYNOD_OPTS="${DYNOD_OPTS:-${DYNO_OPTS}}"
 
-name="Dyno Core Daemon"
-description="Dyno cryptocurrency P2P network daemon"
+name="Bitcoin Core Daemon"
+description="Bitcoin cryptocurrency P2P network daemon"
 
 command="/usr/bin/dynod"
-command_args="-pid=\"${BITCOIND_PIDFILE}\" \
-		-conf=\"${BITCOIND_CONFIGFILE}\" \
-		-datadir=\"${BITCOIND_DATADIR}\" \
+command_args="-pid=\"${DYNOD_PIDFILE}\" \
+		-conf=\"${DYNOD_CONFIGFILE}\" \
+		-datadir=\"${DYNOD_DATADIR}\" \
 		-daemon \
-		${BITCOIND_OPTS}"
+		${DYNOD_OPTS}"
 
-required_files="${BITCOIND_CONFIGFILE}"
-start_stop_daemon_args="-u ${BITCOIND_USER} \
-			-N ${BITCOIND_NICE} -w 2000"
-pidfile="${BITCOIND_PIDFILE}"
+required_files="${DYNOD_CONFIGFILE}"
+start_stop_daemon_args="-u ${DYNOD_USER} \
+			-N ${DYNOD_NICE} -w 2000"
+pidfile="${DYNOD_PIDFILE}"
 
 # The retry schedule to use when stopping the daemon. Could be either
 # a timeout in seconds or multiple signal/timeout pairs (like
 # "SIGKILL/180 SIGTERM/300")
-retry="${BITCOIND_SIGTERM_TIMEOUT}"
+retry="${DYNOD_SIGTERM_TIMEOUT}"
 
 depend() {
 	need localmount net
@@ -50,41 +50,41 @@ start_pre() {
 	checkpath \
 	-d \
 	--mode 0750 \
-	--owner "${BITCOIND_USER}:${BITCOIND_GROUP}" \
-	"${BITCOIND_DATADIR}"
+	--owner "${DYNOD_USER}:${DYNOD_GROUP}" \
+	"${DYNOD_DATADIR}"
 
 	checkpath \
 	-d \
 	--mode 0755 \
-	--owner "${BITCOIND_USER}:${BITCOIND_GROUP}" \
-	"${BITCOIND_PIDDIR}"
+	--owner "${DYNOD_USER}:${DYNOD_GROUP}" \
+	"${DYNOD_PIDDIR}"
 
 	checkpath -f \
-	-o ${BITCOIND_USER}:${BITCOIND_GROUP} \
+	-o ${DYNOD_USER}:${DYNOD_GROUP} \
 	-m 0660 \
-	${BITCOIND_CONFIGFILE}
+	${DYNOD_CONFIGFILE}
 
 	checkconfig || return 1
 }
 
 checkconfig()
 {
-	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
+	if ! grep -qs '^rpcpassword=' "${DYNOD_CONFIGFILE}" ; then
 		eerror ""
 		eerror "ERROR: You must set a secure rpcpassword to run dynod."
-		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
+		eerror "The setting must appear in ${DYNOD_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
 		eerror "and must not be the same as the rpcuser setting."
-		eerror "You can generate a suitable random password using the following"
+		eerror "You can generate a suitable random password using the following "
 		eerror "command from the shell:"
 		eerror ""
 		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
 		eerror ""
-		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "It is recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"Dyno Core Alert\"" \
+		eerror "ie: alertnotify=echo %%s | mail -s \"Bitcoin Alert\"" \
 			"admin@foo.com"
 		eerror ""
 		return 1

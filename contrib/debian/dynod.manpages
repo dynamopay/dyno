@@ -1,3 +1,2 @@
-debian/manpages/dynod.1
-debian/manpages/dyno.conf.5
-debian/manpages/dyno-cli.1
+doc/man/dynod.1
+doc/man/dyno-cli.1

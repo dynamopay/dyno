@@ -1,4 +1,4 @@
-DynamoPay Core
+DynamoPay Core 0.13.1
 ===============================
 
 http://www.dynamopay.io/
@@ -16,40 +16,29 @@ for the miners.
 
 Additional information, wallets, specifications & roadmap: http://www.dynamopay.io/#roadmap
 
-Name of Coin : DYNO
-
-Tiker : DYO
-
-PoW Algorithem : neoscrypt
-
-Block Time : 120 sec
-
-Masternode Reward : 70%
-
-Masternode Price: 1000 DYO
-
-Premine: Total 920000 DYO
+- Name of Coin : DYNO
+- Tiker : DYO
+- Algorithm: NeoScrypt
+- Block time: 120 seconds
+- Block reward: 40 DYO
+- Masternode Collateral: 1000 DYO
+- POW/Masternode Split: 30/70%
+- Premine: Total 920000 DYO
+- Total supply: 27 000 000 DYO
 
 
-----------------------------------------
-Compiling Guide
-----------------------------------------
+License
+-------
 
-1) Basic environment requirements (on linux)
+DynamoPay Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+information or see https://opensource.org/licenses/MIT.
 
-sudo apt-get install -y curl g++ git-core pkg-config autoconf libtool automake faketime bsdmainutils mingw-w64 g++-mingw-w64 nsis zip ca-certificates python
 
-you need to login by id that have authority to control /root/ directory.
+Development Process
+-------------------
 
-2) For automatic setup (on linux)
+The `master` branch is meant to be stable. Development is normally done in separate branches.
+[Tags](https://github.com/vivocoin/vivo/tags) are created to indicate new official,
+stable release versions of Vivo Core.
 
-Run compile-l.sh
-
-3) For windows 32bit (on linux)
-
-Run compile-w32.sh
-
-4) For windows 64bit (on linux)
-
-Run compile-w64.sh
-
+The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).

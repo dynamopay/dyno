@@ -1,4 +1,5 @@
 IDI_ICON1 ICON DISCARDABLE "icons/bitcoin.ico"
+IDI_ICON2 ICON DISCARDABLE "icons/bitcoin_testnet.ico"
 
 #include <windows.h>             // needed for VERSIONINFO
 #include "../../clientversion.h" // holds the needed client version information
@@ -18,14 +19,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Dyno"
-            VALUE "FileDescription",    "Dyno Core (GUI node for Dyno)"
+            VALUE "CompanyName",        "DynamoPay"
+            VALUE "FileDescription",    "DynamoPay QT (GUI node for DynamoPay)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "dyno-qt"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "dyno-qt.exe"
-            VALUE "ProductName",        "Dyno Core"
+            VALUE "ProductName",        "DynamoPay QT"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END
